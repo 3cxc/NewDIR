@@ -8,3 +8,6 @@
 /NDIrSys/bin/Debug
 /NDIrSys/packages/EXILED.8.8.1/images
 /NDIrSys/NDIrSys.csproj
+/NDIrSys/packages.config
+/.gitignore
+/NDIrSys/packages/EXILED.8.8.1/lib/net48/Exiled.CreditTags.dll
