@@ -109,20 +109,22 @@ namespace NDIrSys
         }
         public void Join(VerifiedEventArgs ev)
         {
-          
-            if (!File.Exists(Config.Pach + "\\" + ev.Player.UserId + ".ini"))
+
+            string filePath = Path.Combine(Config.Pach, ev.Player.UserId + ".ini");
+
+            if (!File.Exists(filePath))
             {
                 IniFile iniFile = new IniFile();
                 iniFile.Section("DIR").Set("称号", "空", "称号");
                 iniFile.Section("DIR").Set("称号颜色", "空");
                 iniFile.Section("DIR").Set("管理权限组", "空");
-                iniFile.Save(Config.Pach + "\\" + ev.Player.UserId + ".ini");
+                iniFile.Save(filePath);
             }
             else
             {
                 
-                IniFile iniFile = new IniFile(Config.Pach + "\\" + ev.Player.UserId + ".ini");
-                iniFile.Save(Config.Pach + "\\" + ev.Player.UserId + ".ini");
+                IniFile iniFile = new IniFile(filePath);
+                iniFile.Save(filePath);
                 if (iniFile.Section("DIR").Get("管理权限组") == "空")
                 {
                     if (iniFile.Section("DIR").Get("称号") != "空")
